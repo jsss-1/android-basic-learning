@@ -12,7 +12,10 @@
         android:theme="@style/Theme.HelloWorld"
         tools:targetApi="31">
         <activity
-            android:name="TextViewActivity"
+            android:name=".ButtonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TextViewActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
