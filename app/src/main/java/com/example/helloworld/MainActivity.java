@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mBtnTextView;
     private Button mBtnButton;
+    private Button mBtnEditText;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -36,6 +37,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //跳转到Button演示界面
                 Intent intent=new Intent(MainActivity.this, ButtonActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnEditText=(Button) findViewById(R.id.btn_edittext);
+        mBtnEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //跳转到EditText演示界面
+                Intent intent=new Intent(MainActivity.this, EditTextActivity.class);
                 startActivity(intent);
             }
         });
