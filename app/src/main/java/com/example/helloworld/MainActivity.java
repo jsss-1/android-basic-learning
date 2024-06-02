@@ -14,41 +14,54 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnTextView;
     private Button mBtnButton;
     private Button mBtnEditText;
+    private Button mBtnRadioButton;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mBtnTextView=(Button) findViewById(R.id.btn_textview);
-        mBtnTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //跳转到TextView演示界面
-                Intent intent=new Intent(MainActivity.this, TextViewActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
         mBtnButton=(Button) findViewById(R.id.btn_button);
-        mBtnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //跳转到Button演示界面
-                Intent intent=new Intent(MainActivity.this, ButtonActivity.class);
-                startActivity(intent);
-            }
-        });
-
         mBtnEditText=(Button) findViewById(R.id.btn_edittext);
-        mBtnEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //跳转到EditText演示界面
-                Intent intent=new Intent(MainActivity.this, EditTextActivity.class);
-                startActivity(intent);
+        mBtnRadioButton=(Button) findViewById(R.id.btn_radiobutton);
+
+        setListeners();
+    }
+
+
+    private void setListeners(){
+        OnClick onClick=new OnClick();
+        mBtnTextView.setOnClickListener(onClick);
+        mBtnButton.setOnClickListener(onClick);
+        mBtnEditText.setOnClickListener(onClick);
+        mBtnRadioButton.setOnClickListener(onClick);
+    }
+
+    private class OnClick implements View.OnClickListener{
+        @Override
+        public void onClick(View view) {
+            Intent intent = null;
+            switch (view.getId()){
+                case R.id.btn_textview:
+                    //跳转到TextView演示界面
+                    intent=new Intent(MainActivity.this, TextViewActivity.class);
+                    break;
+                case R.id.btn_button:
+                    //跳转到EditText演示界面
+                    intent=new Intent(MainActivity.this, EditTextActivity.class);
+                    break;
+                case R.id.btn_edittext:
+                    //跳转到EditText演示界面
+                    intent=new Intent(MainActivity.this, EditTextActivity.class);
+                    break;
+                case R.id.btn_radiobutton:
+                    //跳转到RadioButton演示界面
+                    intent=new Intent(MainActivity.this, RadioButtonActivity.class);
+                    break;
             }
-        });
+            startActivity(intent);
+        }
     }
 }
