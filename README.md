@@ -15,7 +15,7 @@
 
 2-1-2 RelativeLayout
 
-
+2-2 TextView
 
 
 
