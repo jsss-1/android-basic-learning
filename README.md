@@ -23,3 +23,5 @@
 
 2-5 RadioButton
 
+2-6 CheckBox
+
