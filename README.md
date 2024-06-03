@@ -25,3 +25,5 @@
 
 2-6 CheckBox
 
+2-7 ImageView
+
