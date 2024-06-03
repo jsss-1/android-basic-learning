@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnListView;
     private Button mBtnGridView;
     private Button mBtnRv;
+    private Button mBtnWebView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnListView=(Button) findViewById(R.id.btn_listview);
         mBtnGridView=(Button) findViewById(R.id.btn_gridview);
         mBtnRv=(Button) findViewById(R.id.btn_recyclerview);
+        mBtnWebView=(Button) findViewById(R.id.btn_webview);
 
         setListeners();
     }
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnListView.setOnClickListener(onClick);
         mBtnGridView.setOnClickListener(onClick);
         mBtnRv.setOnClickListener(onClick);
+        mBtnWebView.setOnClickListener(onClick);
     }
 
     private class OnClick implements View.OnClickListener{
@@ -98,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_recyclerview:
                     //跳转到RecyclerView演示界面
                     intent=new Intent(MainActivity.this, RecyclerViewActivity.class);
+                    break;
+                case R.id.btn_webview:
+                    //跳转到WebView演示界面
+                    intent=new Intent(MainActivity.this, WebViewActivity.class);
                     break;
             }
             startActivity(intent);
