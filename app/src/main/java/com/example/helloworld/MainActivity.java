@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.helloworld.gridview.GridViewActivity;
 import com.example.helloworld.listview.ListViewActivity;
 
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnCheckBox;
     private Button mBtnImageView;
     private Button mBtnListView;
+    private Button mBtnGridView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnCheckBox=(Button) findViewById(R.id.btn_checkbox);
         mBtnImageView=(Button) findViewById(R.id.btn_imageview);
         mBtnListView=(Button) findViewById(R.id.btn_listview);
+        mBtnGridView=(Button) findViewById(R.id.btn_gridview);
 
         setListeners();
     }
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnCheckBox.setOnClickListener(onClick);
         mBtnImageView.setOnClickListener(onClick);
         mBtnListView.setOnClickListener(onClick);
+        mBtnGridView.setOnClickListener(onClick);
     }
 
     private class OnClick implements View.OnClickListener{
@@ -82,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_listview:
                     //跳转到ImageView演示界面
                     intent=new Intent(MainActivity.this, ListViewActivity.class);
+                    break;
+                case R.id.btn_gridview:
+                    //跳转到GridView演示界面
+                    intent=new Intent(MainActivity.this, GridViewActivity.class);
                     break;
             }
             startActivity(intent);
