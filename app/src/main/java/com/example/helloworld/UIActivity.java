@@ -27,6 +27,7 @@ public class UIActivity extends AppCompatActivity {
     private Button mBtnWebView;
     private Button mBtnToast;
     private Button mBtnDialog;
+    private Button mBtnProgress;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -46,6 +47,7 @@ public class UIActivity extends AppCompatActivity {
         mBtnWebView=(Button) findViewById(R.id.btn_webview);
         mBtnToast=(Button) findViewById(R.id.btn_toast);
         mBtnDialog=(Button) findViewById(R.id.btn_dialog);
+        mBtnProgress =(Button) findViewById(R.id.btn_progress);
 
         setListeners();
     }
@@ -65,6 +67,7 @@ public class UIActivity extends AppCompatActivity {
         mBtnWebView.setOnClickListener(onClick);
         mBtnToast.setOnClickListener(onClick);
         mBtnDialog.setOnClickListener(onClick);
+        mBtnProgress.setOnClickListener(onClick);
     }
 
     private class OnClick implements View.OnClickListener{
@@ -113,12 +116,16 @@ public class UIActivity extends AppCompatActivity {
                     intent=new Intent(UIActivity.this, WebViewActivity.class);
                     break;
                 case R.id.btn_toast:
-                    //跳转到WebView演示界面
+                    //跳转到Toast演示界面
                     intent=new Intent(UIActivity.this, ToastActivity.class);
                     break;
                 case R.id.btn_dialog:
-                    //跳转到WebView演示界面
+                    //跳转到Dialog演示界面
                     intent=new Intent(UIActivity.this, DialogActivity.class);
+                    break;
+                case R.id.btn_progress:
+                    //跳转到Progress演示界面
+                    intent=new Intent(UIActivity.this, ProgressActivity.class);
                     break;
 
             }

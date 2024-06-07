@@ -13,4 +13,10 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="MyProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/bg_progress</item>
+        <item name="android:indeterminate">true</item>
+    </style>
+
 </resources>
