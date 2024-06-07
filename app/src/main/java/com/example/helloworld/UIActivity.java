@@ -28,6 +28,7 @@ public class UIActivity extends AppCompatActivity {
     private Button mBtnToast;
     private Button mBtnDialog;
     private Button mBtnProgress;
+    private Button mBtnCustomDialog;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,6 +49,7 @@ public class UIActivity extends AppCompatActivity {
         mBtnToast=(Button) findViewById(R.id.btn_toast);
         mBtnDialog=(Button) findViewById(R.id.btn_dialog);
         mBtnProgress =(Button) findViewById(R.id.btn_progress);
+        mBtnCustomDialog =(Button) findViewById(R.id.btn_custom);
 
         setListeners();
     }
@@ -68,6 +70,7 @@ public class UIActivity extends AppCompatActivity {
         mBtnToast.setOnClickListener(onClick);
         mBtnDialog.setOnClickListener(onClick);
         mBtnProgress.setOnClickListener(onClick);
+        mBtnCustomDialog.setOnClickListener(onClick);
     }
 
     private class OnClick implements View.OnClickListener{
@@ -126,6 +129,10 @@ public class UIActivity extends AppCompatActivity {
                 case R.id.btn_progress:
                     //跳转到Progress演示界面
                     intent=new Intent(UIActivity.this, ProgressActivity.class);
+                    break;
+                case R.id.btn_custom:
+                    //跳转到CustomDialog演示界面
+                    intent=new Intent(UIActivity.this, CustomDialogActivity.class);
                     break;
 
             }
