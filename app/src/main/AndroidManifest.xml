@@ -58,6 +58,7 @@
         <activity
             android:name=".jump.BActivity"
             android:label="B"
+            android:launchMode="singleTop"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.test.BActivity" />
@@ -68,6 +69,8 @@
         <activity
             android:name=".jump.AActivity"
             android:label="A"
+            android:launchMode="singleTop"
+            android:taskAffinity="asdfghjkdfghj"
             android:exported="false" />
         <activity
             android:name=".LifeCycleActivity"
