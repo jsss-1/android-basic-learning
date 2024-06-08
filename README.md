@@ -55,3 +55,5 @@
 
 4-1-1 Activity创建三部曲
 
+4-1-2 Activity的生命周期
+

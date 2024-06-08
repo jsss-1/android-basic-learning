@@ -23,6 +23,7 @@ public class UIActivity extends AppCompatActivity {
     private Button mBtnImageView;
     private Button mBtnListView;
     private Button mBtnGridView;
+    private Button mBtnLifeCycle;
     private Button mBtnRv;
     private Button mBtnWebView;
     private Button mBtnToast;
@@ -45,6 +46,7 @@ public class UIActivity extends AppCompatActivity {
         mBtnImageView=(Button) findViewById(R.id.btn_imageview);
         mBtnListView=(Button) findViewById(R.id.btn_listview);
         mBtnGridView=(Button) findViewById(R.id.btn_gridview);
+        mBtnLifeCycle = (Button) findViewById(R.id.btn_lifecycle);
         mBtnRv=(Button) findViewById(R.id.btn_recyclerview);
         mBtnWebView=(Button) findViewById(R.id.btn_webview);
         mBtnToast=(Button) findViewById(R.id.btn_toast);
@@ -67,6 +69,7 @@ public class UIActivity extends AppCompatActivity {
         mBtnImageView.setOnClickListener(onClick);
         mBtnListView.setOnClickListener(onClick);
         mBtnGridView.setOnClickListener(onClick);
+        mBtnLifeCycle.setOnClickListener(onClick);
         mBtnRv.setOnClickListener(onClick);
         mBtnWebView.setOnClickListener(onClick);
         mBtnToast.setOnClickListener(onClick);
@@ -112,6 +115,9 @@ public class UIActivity extends AppCompatActivity {
                 case R.id.btn_gridview:
                     //跳转到GridView演示界面
                     intent=new Intent(UIActivity.this, GridViewActivity.class);
+                    break;
+                case R.id.btn_lifecycle:
+                    intent=new Intent(UIActivity.this, LifeCycleActivity.class);
                     break;
                 case R.id.btn_recyclerview:
                     //跳转到RecyclerView演示界面
