@@ -20,7 +20,7 @@ public class ListViewActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.acticity_listview);
+        setContentView(R.layout.activity_listview);
         mLv1 = (ListView) findViewById(R.id.lv_1);
         mLv1.setAdapter(new MyListAdapter(ListViewActivity.this));
         mLv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -56,6 +56,20 @@
             android:name=".recyclerview.RecyclerViewActivity"
             android:exported="false" />
         <activity
+            android:name=".jump.BActivity"
+            android:label="B"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.test.BActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".jump.AActivity"
+            android:label="A"
+            android:exported="false" />
+        <activity
             android:name=".LifeCycleActivity"
             android:exported="false" />
         <activity
