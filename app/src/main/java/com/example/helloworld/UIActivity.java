@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.helloworld.fragment.AFragment;
+import com.example.helloworld.fragment.ContainerActivity;
 import com.example.helloworld.gridview.GridViewActivity;
 import com.example.helloworld.jump.AActivity;
 import com.example.helloworld.listview.ListViewActivity;
@@ -26,6 +28,7 @@ public class UIActivity extends AppCompatActivity {
     private Button mBtnGridView;
     private Button mBtnLifeCycle;
     private Button mBtnJump;
+    private Button mBtnFragment;
     private Button mBtnRv;
     private Button mBtnWebView;
     private Button mBtnToast;
@@ -50,6 +53,7 @@ public class UIActivity extends AppCompatActivity {
         mBtnGridView=(Button) findViewById(R.id.btn_gridview);
         mBtnLifeCycle = (Button) findViewById(R.id.btn_lifecycle);
         mBtnJump = (Button) findViewById(R.id.btn_jump);
+        mBtnFragment = (Button) findViewById(R.id.btn_fragment);
         mBtnRv=(Button) findViewById(R.id.btn_recyclerview);
         mBtnWebView=(Button) findViewById(R.id.btn_webview);
         mBtnToast=(Button) findViewById(R.id.btn_toast);
@@ -74,6 +78,7 @@ public class UIActivity extends AppCompatActivity {
         mBtnGridView.setOnClickListener(onClick);
         mBtnLifeCycle.setOnClickListener(onClick);
         mBtnJump.setOnClickListener(onClick);
+        mBtnFragment.setOnClickListener(onClick);
         mBtnRv.setOnClickListener(onClick);
         mBtnWebView.setOnClickListener(onClick);
         mBtnToast.setOnClickListener(onClick);
@@ -127,6 +132,10 @@ public class UIActivity extends AppCompatActivity {
                 case R.id.btn_jump:
                     //跳转到AActivity演示界面
                     intent=new Intent(UIActivity.this, AActivity.class);
+                    break;
+                case R.id.btn_fragment:
+                    //跳转到Fragment演示界面
+                    intent=new Intent(UIActivity.this, ContainerActivity.class);
                     break;
                 case R.id.btn_recyclerview:
                     //跳转到RecyclerView演示界面
