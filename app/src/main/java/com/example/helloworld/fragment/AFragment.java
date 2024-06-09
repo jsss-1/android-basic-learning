@@ -21,8 +21,9 @@ import com.example.helloworld.R;
 public class AFragment extends Fragment {
 
     private TextView mTvTitle;
-    private Button mBtnChange, mBtnReset;
+    private Button mBtnChange, mBtnReset, mBtnMessage;
     private BFragment bFragment;
+    private IOnMessageClick listener;
 
 
     //    private Activity mActivity;
@@ -32,6 +33,20 @@ public class AFragment extends Fragment {
         bundle.putString("title", title);
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    public interface IOnMessageClick {
+        void onClick(String text);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (IOnMessageClick) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException("Activity 必须实现 IOnMessageClick接口");
+        }
     }
 
     @Nullable
@@ -49,6 +64,14 @@ public class AFragment extends Fragment {
         mTvTitle = view.findViewById(R.id.tv_title);
         mBtnChange = (Button) view.findViewById(R.id.btn_change);
         mBtnReset = (Button) view.findViewById(R.id.btn_reset);
+        mBtnMessage = (Button) view.findViewById(R.id.btn_message);
+        mBtnMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                ((ContainerActivity) getActivity()).setData("你好");
+                listener.onClick("你好");
+            }
+        });
         mBtnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
