@@ -1,6 +1,8 @@
 package com.example.helloworld.fragment;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,15 @@ public class AFragment extends Fragment {
 
     private TextView mTvTitle;
 
+    //    private Activity mActivity;
+    public static AFragment newInstance(String title) {
+        AFragment fragment = new AFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("title", title);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,5 +41,31 @@ public class AFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //
         mTvTitle = view.findViewById(R.id.tv_title);
+        if (getArguments()!=null){
+            mTvTitle.setText(getArguments().getString("title"));
+        }
+
+//        if (getActivity()!=null){
+//            //TODO
+//        }else {
+//
+//        }
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+//        mActivity = (Activity) context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //取消异步
     }
 }
