@@ -8,10 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.helloworld.datastorage.DataStorageActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mBtnUI;
     private Button mBtnEvent;
+    private Button mBtnData;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -21,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         mBtnUI = (Button) findViewById(R.id.btn_ui);
         mBtnEvent = (Button) findViewById(R.id.btn_event);
+        mBtnData = (Button) findViewById(R.id.btn_data);
         OnClick onClick = new OnClick();
         mBtnUI.setOnClickListener(onClick);
         mBtnEvent.setOnClickListener(onClick);
+        mBtnData.setOnClickListener(onClick);
     }
 
     class OnClick implements View.OnClickListener {
@@ -36,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_event:
                     intent=new Intent(MainActivity.this, EventActivity.class);
+                    break;
+                case R.id.btn_data:
+                    intent=new Intent(MainActivity.this, DataStorageActivity.class);
                     break;
             }
             startActivity(intent);
