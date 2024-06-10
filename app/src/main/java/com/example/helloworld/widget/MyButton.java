@@ -24,13 +24,29 @@ public class MyButton extends AppCompatButton {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        Log.d("MyButton","---dispatchTouchEvent---");
+        return super.dispatchTouchEvent(event);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
-        super.onTouchEvent(event);
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
                 Log.d("MyButton","---onTouchEvent---");
                 break;
         }
-        return false;
+        return super.onTouchEvent(event);
     }
+
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        super.onTouchEvent(event);
+//        switch (event.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                Log.d("MyButton","---onTouchEvent---");
+//                break;
+//        }
+//        return false;
+//    }
 }
