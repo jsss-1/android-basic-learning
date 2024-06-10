@@ -3,6 +3,7 @@ package com.example.helloworld;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -12,9 +13,9 @@ import android.widget.Button;
 import com.example.helloworld.util.ToastUtil;
 import com.example.helloworld.widget.MyButton;
 
-public class EventActivity extends AppCompatActivity implements View.OnClickListener{
+public class EventActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button mBtnEvent;
+    private Button mBtnEvent, mBtnHandler;
     private MyButton btnMy;
 
     @SuppressLint("MissingInflatedId")
@@ -23,14 +24,15 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
-        mBtnEvent=(Button) findViewById(R.id.btn_event);
-        btnMy=(MyButton) findViewById(R.id.btn_my);
+        mBtnEvent = (Button) findViewById(R.id.btn_event);
+        mBtnHandler = (Button) findViewById(R.id.btn_handler);
+        btnMy = (MyButton) findViewById(R.id.btn_my);
         btnMy.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()){
+                switch (motionEvent.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        Log.d("Listener","---onTouch---");
+                        Log.d("Listener", "---onTouch---");
                         break;
                 }
                 return false;
@@ -39,7 +41,7 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
         btnMy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Listener","---onClick---");
+                Log.d("Listener", "---onClick---");
             }
         });
         btnMy.setOnLongClickListener(new View.OnLongClickListener() {
@@ -62,44 +64,52 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
 //        mBtnEvent.setOnClickListener(EventActivity.this);
 //        //通过外部类
 //        mBtnEvent.setOnClickListener(new MyClickListener(EventActivity.this));
+
+        mBtnHandler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EventActivity.this, HandlerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_event:
-                ToastUtil.showMsg(EventActivity.this,"click...");
+                ToastUtil.showMsg(EventActivity.this, "click...");
                 break;
         }
     }
 
-    class OnClick implements View.OnClickListener{
+    class OnClick implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            switch (view.getId()){
+            switch (view.getId()) {
                 case R.id.btn_event:
-                    Log.d("内部类","click");
-                    ToastUtil.showMsg(EventActivity.this,"click...");
+                    Log.d("内部类", "click");
+                    ToastUtil.showMsg(EventActivity.this, "click...");
                     break;
             }
         }
     }
 
     //android:onClick="show"
-    public void show(View v){
-        switch (v.getId()){
+    public void show(View v) {
+        switch (v.getId()) {
             case R.id.btn_event:
-                Log.d("布局","click");
-                ToastUtil.showMsg(EventActivity.this,"click...");
+                Log.d("布局", "click");
+                ToastUtil.showMsg(EventActivity.this, "click...");
                 break;
         }
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.d("Activity","---onTouchEvent---");
+                Log.d("Activity", "---onTouchEvent---");
                 break;
         }
         return false;
