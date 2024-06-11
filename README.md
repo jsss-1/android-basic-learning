@@ -79,3 +79,5 @@
 
 7-1 SharedPreferences 轻量数据存储
 
+7-2-2 File 内部存储
+
