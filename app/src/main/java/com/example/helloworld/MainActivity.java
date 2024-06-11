@@ -1,7 +1,9 @@
 package com.example.helloworld;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         mBtnUI.setOnClickListener(onClick);
         mBtnEvent.setOnClickListener(onClick);
         mBtnData.setOnClickListener(onClick);
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
     }
 
     class OnClick implements View.OnClickListener {
@@ -37,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = null;
             switch (view.getId()) {
                 case R.id.btn_ui:
-                    intent=new Intent(MainActivity.this, UIActivity.class);
+                    intent = new Intent(MainActivity.this, UIActivity.class);
                     break;
                 case R.id.btn_event:
-                    intent=new Intent(MainActivity.this, EventActivity.class);
+                    intent = new Intent(MainActivity.this, EventActivity.class);
                     break;
                 case R.id.btn_data:
-                    intent=new Intent(MainActivity.this, DataStorageActivity.class);
+                    intent = new Intent(MainActivity.this, DataStorageActivity.class);
                     break;
             }
             startActivity(intent);
