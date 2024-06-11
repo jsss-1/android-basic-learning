@@ -15,6 +15,9 @@
         android:theme="@style/Theme.HelloWorld"
         tools:targetApi="31">
         <activity
+            android:name=".anim.ObjectAnimActivity"
+            android:exported="false" />
+        <activity
             android:name=".broadcast.BroadActivity2"
             android:exported="false" />
         <activity

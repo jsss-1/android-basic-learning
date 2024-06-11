@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.helloworld.anim.ObjectAnimActivity;
 import com.example.helloworld.broadcast.BroadActivity;
 import com.example.helloworld.datastorage.DataStorageActivity;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnEvent;
     private Button mBtnData;
     private Button mBtnBroad;
+    private Button mBtnAnim;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -30,11 +32,14 @@ public class MainActivity extends AppCompatActivity {
         mBtnEvent = (Button) findViewById(R.id.btn_event);
         mBtnData = (Button) findViewById(R.id.btn_data);
         mBtnBroad = (Button) findViewById(R.id.btn_broad);
+        mBtnAnim = (Button) findViewById(R.id.btn_anim);
+
         OnClick onClick = new OnClick();
         mBtnUI.setOnClickListener(onClick);
         mBtnEvent.setOnClickListener(onClick);
         mBtnData.setOnClickListener(onClick);
         mBtnBroad.setOnClickListener(onClick);
+        mBtnAnim.setOnClickListener(onClick);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
     }
@@ -55,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_broad:
                     intent = new Intent(MainActivity.this, BroadActivity.class);
+                    break;
+                case R.id.btn_anim:
+                    intent = new Intent(MainActivity.this, ObjectAnimActivity.class);
                     break;
             }
             startActivity(intent);
