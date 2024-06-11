@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnData;
     private Button mBtnBroad;
     private Button mBtnAnim;
+    private Button mBtnWave;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnData = (Button) findViewById(R.id.btn_data);
         mBtnBroad = (Button) findViewById(R.id.btn_broad);
         mBtnAnim = (Button) findViewById(R.id.btn_anim);
+        mBtnWave = (Button) findViewById(R.id.btn_wave);
 
         OnClick onClick = new OnClick();
         mBtnUI.setOnClickListener(onClick);
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnData.setOnClickListener(onClick);
         mBtnBroad.setOnClickListener(onClick);
         mBtnAnim.setOnClickListener(onClick);
+        mBtnWave.setOnClickListener(onClick);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
     }
@@ -63,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_anim:
                     intent = new Intent(MainActivity.this, ObjectAnimActivity.class);
+                    break;
+                case R.id.btn_wave:
+                    intent = new Intent(MainActivity.this, WaveActivity.class);
                     break;
             }
             startActivity(intent);

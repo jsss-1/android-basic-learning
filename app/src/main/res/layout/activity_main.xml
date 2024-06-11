@@ -38,4 +38,12 @@
         android:layout_height="wrap_content"
         android:text="动画"
         android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btn_wave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="按压水波纹效果"
+        android:textAllCaps="false"/>
+
 </LinearLayout>

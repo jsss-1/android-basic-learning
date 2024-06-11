@@ -85,5 +85,8 @@
 
 8-1 LocalBroadcastManager
 
-属性动画
+6 属性动画
+
+附 按压水波纹效果
+
 
